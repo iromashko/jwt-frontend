@@ -35,11 +35,10 @@ export class RegisterPageComponent implements OnInit {
       password: this.form.value.password,
     };
 
-    this.authService.login(user).subscribe(
-      (res) => {
-        console.log(res);
+    this.authService.register(user).subscribe(
+      () => {
         this.form.reset();
-        this.router.navigate(['/admin', 'dashboard']);
+        this.router.navigate(['/admin', 'login']);
         this.submitted = false;
       },
       () => {

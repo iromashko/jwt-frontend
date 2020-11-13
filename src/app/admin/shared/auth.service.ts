@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { AuthResponse, User } from 'src/app/shared/interfaces';
@@ -8,7 +9,7 @@ import { AuthResponse, User } from 'src/app/shared/interfaces';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   public error$ = new Subject<string>();
 
@@ -20,6 +21,12 @@ export class AuthService {
     return this.http
       .post('http://localhost:3000/auth/signin', user)
       .pipe(tap(this.setToken), catchError(this.handleError.bind(this)));
+  }
+
+  register(user: User): Observable<any> {
+    return this.http
+      .post('http://localhost:3000/auth/signup', user, { observe: 'response' })
+      .pipe(catchError(this.handleError.bind(this)));
   }
 
   logout() {
