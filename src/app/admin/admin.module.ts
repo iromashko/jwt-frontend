@@ -7,9 +7,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './shared/auth.service';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 @NgModule({
-  declarations: [AdminLayoutComponent, LoginPageComponent, DashboardComponent],
+  declarations: [
+    AdminLayoutComponent,
+    LoginPageComponent,
+    DashboardComponent,
+    RegisterPageComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -22,12 +28,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
         children: [
           {
             path: '',
-            redirectTo: '/admin/login',
+            redirectTo: '/admin',
             pathMatch: 'full',
           },
           {
             path: 'login',
             component: LoginPageComponent,
+          },
+          {
+            path: 'register',
+            component: RegisterPageComponent,
           },
           {
             path: 'dashboard',
