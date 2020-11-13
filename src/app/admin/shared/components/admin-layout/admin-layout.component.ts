@@ -8,9 +8,12 @@ import { AuthService } from '../../auth.service';
   styleUrls: ['./admin-layout.component.scss'],
 })
 export class AdminLayoutComponent implements OnInit {
-  constructor(private router: Router, public authService: AuthService) {}
+  constructor(private router: Router, public authService: AuthService) {
+    this.username = this.authService.username;
+  }
 
   isOpen = false;
+  username: string;
 
   ngOnInit(): void {}
 

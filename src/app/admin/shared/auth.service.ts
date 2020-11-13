@@ -16,6 +16,9 @@ export class AuthService {
   get token(): string {
     return localStorage.getItem('jwtToken');
   }
+  get username(): string {
+    return localStorage.getItem('username');
+  }
 
   login(user: User): Observable<any> {
     return this.http
@@ -58,6 +61,7 @@ export class AuthService {
   private setToken(response: AuthResponse | null) {
     if (response) {
       localStorage.setItem('jwtToken', response.accessToken);
+      localStorage.setItem('username', response.username);
     } else {
       localStorage.clear();
     }
