@@ -1,4 +1,10 @@
-<form class="card" [formGroup]="form" (ngSubmit)="submit()" autocomplete="off">
+<form
+  class="card"
+  [formGroup]="form"
+  (ngSubmit)="submit()"
+  autocomplete="off"
+  data-cy="registerForm"
+>
   <h2>Register</h2>
 
   <div class="alert alert-danger" *ngIf="authService.error$ | async as error">
@@ -12,7 +18,12 @@
     }"
   >
     <label for="username">Username</label>
-    <input type="text" formControlName="username" id="username" />
+    <input
+      data-cy="registerUsername"
+      type="text"
+      formControlName="username"
+      id="username"
+    />
     <div
       *ngIf="form.get('username').touched && form.get('username').invalid"
       class="validation"
@@ -30,7 +41,12 @@
     }"
   >
     <label for="email">Password</label>
-    <input type="password" formControlName="password" id="password" />
+    <input
+      data-cy="registerPassword"
+      type="password"
+      formControlName="password"
+      id="password"
+    />
     <div
       class="validation"
       *ngIf="form.get('password').touched && form.get('password').invalid"
@@ -51,6 +67,7 @@
     type="submit"
     [disabled]="form.invalid || submitted"
     class="btn btn-dark"
+    data-cy="registerSubmit"
   >
     Signup
   </button>

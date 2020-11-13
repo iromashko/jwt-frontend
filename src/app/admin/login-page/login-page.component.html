@@ -1,4 +1,4 @@
-<form class="card" [formGroup]="form" (ngSubmit)="submit()">
+<form data-cy="loginForm" class="card" [formGroup]="form" (ngSubmit)="submit()">
   <h2>Login</h2>
 
   <div class="alert alert-danger" *ngIf="authService.error$ | async as error">
@@ -12,7 +12,12 @@
     }"
   >
     <label for="username">Username</label>
-    <input type="text" formControlName="username" id="username" />
+    <input
+      data-cy="loginUsername"
+      type="text"
+      formControlName="username"
+      id="username"
+    />
     <div
       *ngIf="form.get('username').touched && form.get('username').invalid"
       class="validation"
@@ -30,7 +35,12 @@
     }"
   >
     <label for="email">Password</label>
-    <input type="password" formControlName="password" id="password" />
+    <input
+      data-cy="loginPassword"
+      type="password"
+      formControlName="password"
+      id="password"
+    />
     <div
       class="validation"
       *ngIf="form.get('password').touched && form.get('password').invalid"
@@ -49,6 +59,7 @@
 
   <button
     type="submit"
+    data-cy="loginSubmit"
     [disabled]="form.invalid || submitted"
     class="btn btn-dark"
   >
