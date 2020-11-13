@@ -8,6 +8,7 @@ import { AuthService } from './shared/auth.service';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { HomePageComponent } from '../home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
         children: [
           {
             path: '',
-            redirectTo: '/admin',
-            pathMatch: 'full',
+            component: HomePageComponent,
           },
           {
             path: 'login',
