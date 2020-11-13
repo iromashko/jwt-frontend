@@ -1,0 +1,30 @@
+ul {
+  display: flex;
+  align-items: center;
+}
+
+.profile-link {
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 35px;
+    background: rgb(240, 238, 238);
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 600px) {
+  .profile-link {
+    i {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  span {
+    display: none;
+  }
+}
