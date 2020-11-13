@@ -71,6 +71,9 @@ describe("JWT Viewer", () => {
     cy.get("[data-cy=loginUsername]").type(username);
     cy.get("[data-cy=loginPassword]").type(password);
     cy.get("[data-cy=loginSubmit]").click();
+    cy.get("[data-cy=tokenArea]").should(($el) => {
+      expect($el).contain(localStorage.getItem("jwtToken"));
+    });
     cy.clearLocalStorage().should((ls) => {
       expect(ls.getItem("jwtToken")).to.be.null;
       expect(ls.getItem("username")).to.be.null;
