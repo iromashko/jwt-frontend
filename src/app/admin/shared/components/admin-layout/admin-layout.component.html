@@ -4,7 +4,7 @@
   </h1>
   <ul *ngIf="authService.isAuthenticated(); else register">
     <li>
-      <a class="profile-link">
+      <a class="profile-link" [routerLink]="['/admin', 'dashboard']">
         <img src="http://robohash.org/jwt" alt="img" />
         <i class="fas fa-chevron-down"></i>
         <span>Profile Name</span>

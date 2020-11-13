@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { HomePageComponent } from '../home-page/home-page.component';
+import { AuthGuard } from './shared/auth.guard';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { HomePageComponent } from '../home-page/home-page.component';
           {
             path: 'dashboard',
             component: DashboardComponent,
+            canActivate: [AuthGuard],
           },
         ],
       },
