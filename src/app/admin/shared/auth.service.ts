@@ -40,7 +40,6 @@ export class AuthService {
   private handleError(error: HttpErrorResponse) {
     const { message } = error.error;
 
-    console.log(message);
     switch (message) {
       case 'Unauthorized':
         this.error$.next('Invalid credentials');
@@ -58,7 +57,6 @@ export class AuthService {
 
   private setToken(response: AuthResponse | null) {
     if (response) {
-      console.log(response);
       localStorage.setItem('jwtToken', response.accessToken);
     } else {
       localStorage.clear();

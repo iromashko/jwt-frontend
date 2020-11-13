@@ -1,6 +1,14 @@
 ul {
   display: flex;
   align-items: center;
+
+  i {
+    transition: all 0.3s;
+
+    &.is-expanded {
+      transform: rotate(180deg);
+    }
+  }
 }
 
 .profile-link {
