@@ -23,4 +23,4 @@ ng s
 Cypress
 
 cd jwt-frontend \
-./node_modules/cypress/bin/cypress open
+./node_modules/cypress/bin/cypress run --headed --spec cypress/integration/jwt-viewer.js
